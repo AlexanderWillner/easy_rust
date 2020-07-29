@@ -99,6 +99,7 @@ Here are some tips when using the Rust Playground:
 - Tools: Rustfmt will format your code nicely.
 - Tools: Clippy will give you extra information about how to make your code better.
 - Config: here you can change your theme to dark mode so you can work at night, and many other configurations.
+- Note: Snippets that can't be compiled contain the character "🚧".
 
 If you want to install Rust, go here [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install) and follow the instructions. Usually you will use `rustup` to install and update Rust.
 
@@ -145,7 +146,7 @@ fn main() { // main() is where Rust programs start to run. Code goes inside {} (
                          // chooses i32 for integers if you don't
                          // tell it to use a different type
 			 
-    println!("{}", my_number as char); // (note: this will not compile)
+    println!("{}", my_number as char); // 🚧
 }
 ```
 
@@ -298,7 +299,7 @@ fn main() {
     let my_float: f64 = 5.0; // This is an f64
     let my_other_float: f32 = 8.5; // This is an f32
 
-    let third_float = my_float + my_other_float; // (note: this will not compile)
+    let third_float = my_float + my_other_float; // 🚧
 }
 ```
 
@@ -319,7 +320,7 @@ fn main() {
     let my_float: f64 = 5.0; // The compiler sees an f64
     let my_other_float: f32 = 8.5; // The compiler sees an f32. It is a different type.
     let third_float = my_float + // The compiler sees a new variable. It must be an f64 plus another f64. Now it expects an f64...
-    let third_float = my_float + my_other_float;  // (note: this will not compile) it found an f32. It can't add them.
+    let third_float = my_float + my_other_float;  // 🚧 it found an f32. It can't add them.
 }
 ```
 
@@ -422,7 +423,7 @@ fn main() {
 }
 
 fn number() -> i32 {
-    8;  // (note: this will not compile)
+    8;  // 🚧
 }
 ```
 
@@ -489,7 +490,7 @@ fn main() {
                            // my_number ends here!
     }
 
-    println!("Hello, number {}", my_number); // (note: this will not compile) there is no my_number and
+    println!("Hello, number {}", my_number); // 🚧 there is no my_number and
                                              // println!() can't find it
 }
 ```
@@ -534,7 +535,7 @@ How do you know if you need `{:?}` and not `{}`? The compiler will tell you. For
 ```rust
 fn main() {
     let doesnt_print = ();
-    println!("This will not print: {}", doesnt_print); // (note: this will not compile)
+    println!("This will not print: {}", doesnt_print); // 🚧
 }
 ```
 
@@ -612,7 +613,7 @@ This will not work:
 ```rust
 fn main() {
     let my_number = 8;
-    my_number = 10; // (note: this will not compile)
+    my_number = 10; // 🚧
 }
 ```
 
@@ -634,7 +635,7 @@ However, you cannot change the type even with `mut`. This will not work:
 ```rust
 fn main() {
     let mut my_variable = 8;
-    my_variable = "Hello, world!"; // (note: this will not compile)
+    my_variable = "Hello, world!"; // 🚧
 }
 ```
 
@@ -1044,7 +1045,7 @@ One other way to make a String is called `.into()` but it is a bit different. So
 
 ```rust
 fn main() {
-    let my_string = "Try to make this a String".into(); // (note: this will not compile)
+    let my_string = "Try to make this a String".into(); // 🚧
 }
 ```
 
@@ -1107,7 +1108,7 @@ fn main() {
 fn return_str() -> &str {
     let country = String::from("Austria");
     let country_ref = &country;
-    country_ref // (note: this will not compile)
+    country_ref // 🚧
 }
 ```
 
@@ -1168,7 +1169,7 @@ fn main() {
     let number_ref = &number;
     let number_change = &mut number;
     *number_change += 10;
-    println!("{}", number_ref); // (note: this will not compile)
+    println!("{}", number_ref); // 🚧
 }
 ```
 
@@ -1226,7 +1227,7 @@ This code will not work:
 fn main() {
     let country = String::from("Austria");
     print_country(country); // We print "Austria"
-    print_country(country); // (note: this will not compile) That was fun, let's do it again!
+    print_country(country); // 🚧 That was fun, let's do it again!
 }
 
 fn print_country(country_name: String) {
@@ -1335,7 +1336,7 @@ In this example, `prints_country()` prints the country name, a `String`. We want
 fn main() {
     let country = String::from("Kiribati");
     prints_country(country);
-    prints_country(country); // (note: this will not compile)
+    prints_country(country); // 🚧
 }
 
 fn prints_country(country_name: String) {
@@ -1378,7 +1379,7 @@ fn main() {
     let mut country = String::from("Kiribati"); // country is mutable
     let country_ref = &country; // country_ref needs a reference
     changes_country(&mut country); // changes_country needs a &mut ref
-    println!("{}", country_ref); // (note: this will not compile) immutable and mutable borrow together
+    println!("{}", country_ref); // 🚧 immutable and mutable borrow together
 }
 
 fn prints_country(country_name: String) {
@@ -1417,7 +1418,7 @@ A variable without a value is called an "uninitialized" variable. Uninitialized 
 
 ```rust
 fn main() {
-    let my_variable; // (note: this will not compile)
+    let my_variable; // 🚧
 }
 ```
 
@@ -1503,8 +1504,8 @@ A good tip: to know the type of a variable, you can "ask" the compiler by giving
 fn main() {
     let seasons = ["Spring", "Summer", "Autumn", "Winter"];
     let seasons2 = ["Spring", "Summer", "Fall", "Autumn", "Winter"];
-    let () = seasons; // (note: this will not compile)
-    let () = seasons2; // (note: this will not compile) as well
+    let () = seasons; // 🚧
+    let () = seasons2; // 🚧 as well
 }
 ```
 
@@ -1778,7 +1779,7 @@ fn main() {
         0 => println!("it's zero"),
         1 => println!("it's one"),
         2 => println!("it's two"),
-        // (note: this will not compile)
+        // 🚧
     }
 }
 ```
@@ -1901,7 +1902,7 @@ fn main() {
     let my_number = 10;
     let some_variable = match my_number {
         10 => 8,
-        _ => "Not ten", // (note: this will not compile)
+        _ => "Not ten", // 🚧
     };
 }
 ```
@@ -1926,7 +1927,7 @@ This will also not work, for the same reason:
 
 ```rust
 fn main() {
-    let some_variable = if my_number == 10 { 8 } else { "something else "}; // (note: this will not compile)
+    let some_variable = if my_number == 10 { 8 } else { "something else "}; // 🚧
 }
 ```
 
@@ -2034,7 +2035,7 @@ Then we decide to change the order...
 
 ```rust
 struct SizeAndColour {
-    colour: Colour // (note: this will not compile) Whoops! Now this doesn't have a comma.
+    colour: Colour // 🚧 Whoops! Now this doesn't have a comma.
     size: u32,
 }
 
@@ -2231,7 +2232,7 @@ fn main() {
     let my_number = 9;
     let reference = &my_number;
 
-    println!("{}", my_number == reference); // (note: this will not compile)
+    println!("{}", my_number == reference); // 🚧
 }
 ```
 
@@ -2263,7 +2264,7 @@ fn main() {
 
     let reference_number = &item.number; // reference number type is &u8
 
-    println!("{}", reference_number == 8); // (note: this will not compile) &u8 and u8 cannot be compared
+    println!("{}", reference_number == 8); // 🚧 &u8 and u8 cannot be compared
 }
 ```
 
@@ -2827,7 +2828,7 @@ fn main() {
 But maybe it would be better to count the number of books so that we know that there are two copies of *Eye of the World*. First let's look at what `.entry()` does, and what `.or_insert()` does. `.entry()` actually returns an `enum` called `Entry`:
 
 ```rust
-pub fn entry(&mut self, key: K) -> Entry<K, V> // (note: this will not compile) incomplete code snippet
+pub fn entry(&mut self, key: K) -> Entry<K, V> // 🚧 incomplete code snippet
 ```
 
 (This is the first snippet (snippet = small piece of code) that does not work. For snippets that don't work there is a note that says `this will not compile` so you know that it won't work. There is also a note that says that it is `incomplete`. That means that there is no `fn main()` to run it. For snippets that don't work or are incomplete you can try to change it yourself, or continue reading.)
@@ -2848,7 +2849,7 @@ fn main() { }
 Then when we call `.or_insert()`, it looks at the enum and decides what to do.
 
 ```rust
-pub fn or_insert(self, default: V) -> &'a mut V { // (note: this will not compile) incomplete code snippet
+pub fn or_insert(self, default: V) -> &'a mut V { // 🚧 incomplete code snippet
     match self {
         Occupied(entry) => entry.into_mut(),
         Vacant(entry) => entry.insert(default),
@@ -2888,14 +2889,14 @@ The important part is `let return_value = book_hashmap.entry(book).or_insert(0);
 You can also use `.or_insert_with()` which lets you use a closure. You can always just do this:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 let return_value = book_hashmap.entry(book).or_insert_with(|| 0); // Closure with nothing
 ```
 
 or add any logic that you want. Here is something simple.
 
 ```rust
-    // (note: this will not compile) incomplete code snippet
+    // 🚧 incomplete code snippet
     for book in book_collection {
         let return_value =
             book_hashmap.entry(book).or_insert_with(|| {
@@ -3003,7 +3004,7 @@ It does not contain: 1 2 4 6 7 9 12 21 23 27 30 31 39 40 45 47 48 50 52 53 62 65
 A `BTreeSet` is similar to a `HashSet` in the same way that a `BTreeMap` is similar to a `HashMap`. If we print each item in the `HashSet`, we don't know what the order will be:
 
 ```rust
-for entry in number_hashset { // (note: this will not compile) incomplete code snippet
+for entry in number_hashset { // 🚧 incomplete code snippet
     print!("{} ", entry);
 }
 ```
@@ -3220,7 +3221,7 @@ The important part is the `<T>` after the function name. Without this, Rust will
 This is easier to understand if we write out a type name:
 
 ```rust
-fn return_number(number: MyType) -> MyType { // (note: this will not compile)
+fn return_number(number: MyType) -> MyType { // 🚧
     println!("Here is your number.");
     number
 }
@@ -3245,7 +3246,7 @@ You will remember that some types in Rust are **Copy**, some are **Clone**, some
 
 ```rust
 fn print_number<T>(number: T) {
-    println!("Here is your number: {:?}", number); // (note: this will not compile)
+    println!("Here is your number: {:?}", number); // 🚧
 }
 
 fn main() {
@@ -3499,7 +3500,7 @@ fn main() { }
 The important point to remember: with `Some`, you have a value of type `T` (any type). But with `None`, you don't have anything. So in a `match` statement for Option you can't say:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 Some(value) => println!("The value is {}", value),
 None(value) => println!("The value is {}", value),
 ```
@@ -3618,7 +3619,7 @@ This information helps you fix your code. `src\main.rs:30:20` means "inside main
 You can also create your own error types. Result functions in the standard library usually have their own error types. For example:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 pub fn from_utf8(vec: Vec<u8>) -> Result<String, FromUtf8Error>
 ```
 
@@ -3753,7 +3754,7 @@ How did we find `std::num::ParseIntError`? One easy way is to "ask" the compiler
 ```rust
 fn main() {
     let failure = "Not a number".parse::<i32>();
-    failure.rbrbrb(); // (note: this will not compile) Compiler: "What is rbrbrb()???"
+    failure.rbrbrb(); // 🚧 Compiler: "What is rbrbrb()???"
 }
 ```
 
@@ -4009,14 +4010,14 @@ fn main() { }
 We can add `first_thing` and `second_thing`, but we need to give more information. Maybe we want an `f32`, so something like this:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 let result = self.second_thing + self.first_thing as f32
 ```
 
 But maybe we want an integer, so like this:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 let result = self.second_thing as u32 + self.first_thing
 ```
 
@@ -4053,7 +4054,7 @@ fn main() {
 This is okay, but we don't want to print "The dog is running". We can change the method `.run()`, but we have to follow the signature. The signature says:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 fn run(&self) {
     println!("The dog is running!");
 }
@@ -4062,7 +4063,7 @@ fn run(&self) {
 The signature says "fn `run()` takes `&self`, and returns nothing". So you can't do this:
 
 ```rust
-fn run(&self) -> i32 { // (note: this will not compile)
+fn run(&self) -> i32 { // 🚧
     5
 }
 ```
@@ -4393,7 +4394,7 @@ Here are some function signatures for them.
 `AsRef<str>`:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 impl AsRef<str> for String
 
 fn as_ref(&self) -> &str
@@ -4402,7 +4403,7 @@ fn as_ref(&self) -> &str
 `AsRef<[u8]>`:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 impl AsRef<[u8]> for String
 
 fn as_ref(&self) -> &[u8]
@@ -4411,7 +4412,7 @@ fn as_ref(&self) -> &[u8]
 `AsRef<OsStr>`:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 impl AsRef<OsStr> for String
 
 fn as_ref(&self) -> &OsStr
@@ -4423,7 +4424,7 @@ Let's start with the generic function. This doesn't work yet:
 
 ```rust
 fn print_it<T>(input: T) {
-    println!("{}", input) // (note: this will not compile)
+    println!("{}", input) // 🚧
 }
 
 fn main() {
@@ -4639,7 +4640,7 @@ That works well. Now we want to implement `Iterator` for the library so we can u
 
 ```rust
 for item in my_library {
-    println!("{}", item); // (note: this will not compile)
+    println!("{}", item); // 🚧
 }
 ```
 
@@ -4972,7 +4973,7 @@ Here is an example of an error:
 fn main() {
     let my_vec = vec![8, 9, 10];
 
-    println!("{:?}", my_vec.iter().for_each(|| println!("We didn't use the variables at all"))); // (note: this will not compile)
+    println!("{:?}", my_vec.iter().for_each(|| println!("We didn't use the variables at all"))); // 🚧
 }
 ```
 
@@ -5135,7 +5136,7 @@ fn main() {
 This line is the biggest change:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 .for_each(|company| results_vec.push(company.get_ceo().ok_or("No CEO found")));
 ```
 
@@ -5153,7 +5154,7 @@ Err("No CEO found")
 So now we have all four entries. Now let's use `.ok_or_else()` so we can use a closure and get a better error message. Now we have space to use `format!` to create a `String`, and put the company name in that. Then we return the `String`.
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 company_vec.iter().for_each(|company| {
     results_vec.push(company.get_ceo().ok_or_else(|| {
         let err_message = format!("No CEO found for {}", company.name);
@@ -5603,7 +5604,7 @@ A lifetime means "how long the variable lives". You only need to think about lif
 ```rust
 fn returns_reference() -> &str {
     let my_string = String::from("I am a string");
-    &my_string // (note: this will not compile)
+    &my_string // 🚧
 }
 
 fn main() { }
@@ -5621,7 +5622,7 @@ fn main() {
 
 fn returns_str() -> &str {
     let my_string = String::from("I am a string");
-    "I am a str" // (note: this will not compile)
+    "I am a str" // 🚧
 }
 ```
 
@@ -5666,7 +5667,7 @@ Here is an example of another lifetime. Imagine we want to create a `City` struc
 ```rust
 #[derive(Debug)]
 struct City {
-    name: &str, // (note: this will not compile)
+    name: &str, // 🚧
     date_founded: u32,
 }
 
@@ -5728,7 +5729,7 @@ fn main() {
     let city_names = vec!["Ichinomiya".to_string(), "Kurume".to_string()]; // city_names does not live for the whole program
 
     let my_city = City {
-        name: &city_names[0], // (note: this will not compile) This is a &str, but not a &'static str. It is a reference to a value inside city_names
+        name: &city_names[0], // 🚧 This is a &str, but not a &'static str. It is a reference to a value inside city_names
         date_founded: 1921,
     };
 
@@ -5928,7 +5929,7 @@ There are many methods for `RefCell`. Two of them are `.borrow()` and `.borrow_m
 So changing the value in a `RefCell` is very easy:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 user_1.active.replace(false);
 println!("{:?}", user_1.active);
 ```
@@ -5936,7 +5937,7 @@ println!("{:?}", user_1.active);
 And there are many other methods like `replace_with` that uses a closure:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 let date = 2020;
 
 user_1
@@ -6321,7 +6322,7 @@ struct File(String); // File is a wrapper around String
 fn main() {
     let my_file = File(String::from("I am file contents"));
     let my_string = String::from("I am file contents");
-    println!("{}", my_file == my_string);  // (note: this will not compile) cannot compare File with String
+    println!("{}", my_file == my_string);  // 🚧 cannot compare File with String
 }
 ```
 
@@ -6368,7 +6369,7 @@ fn give_direction(direction: &MapDirection) {
         MapDirection::North => println!("You are heading north."),
         MapDirection::NorthEast => println!("You are heading northeast."),
         // So much more left to type...
-        // (note: this will not compile), as it is not non-exhaustive
+        // 🚧, as it is not non-exhaustive
     }
 }
 ```
@@ -6397,7 +6398,7 @@ fn give_direction(direction: &MapDirection) {
         North => println!("{} north.", m),
         NorthEast => println!("{} northeast.", m),
         // This is a bit better
-        // (note: this will not compile), as it is not non-exhaustive
+        // 🚧, as it is not non-exhaustive
     }
 }
 ```
@@ -6458,7 +6459,7 @@ enum BookType { // A book can be hardcover or softcover, so add an enum
     SoftCover,
 }
 
-fn get_book(book: &Book) -> Option<String> {} // (note: this will not compile) get_book should take a &Book and return an Option<String>
+fn get_book(book: &Book) -> Option<String> {} // 🚧 get_book should take a &Book and return an Option<String>
 
 fn delete_book(book: Book) -> Result<(), String> {} // delete_book should take a Book and return a Result...
                                                     // TODO: impl block and make these functions methods...
@@ -6526,7 +6527,7 @@ Also, `todo!()` functions still need real input and output types. If you just wr
 ```rust
 struct Book {}
 
-fn get_book(book: &Book) -> WorldsBestType { // (note: this will not compile)
+fn get_book(book: &Book) -> WorldsBestType { // 🚧
     todo!()
 }
 
@@ -6554,7 +6555,7 @@ fn main() {
     let user_name = String::from("User MacUserson");
 
     takes_a_string(user_name);
-    also_takes_a_string(user_name); // (note: this will not compile)
+    also_takes_a_string(user_name); // 🚧
 }
 
 fn takes_a_string(input: String) {
@@ -6597,7 +6598,7 @@ fn main() {
         histories: vec![calgary.city_history], // But this String is very long
     };
 
-    println!("Calgary's history is: {}", calgary.city_history);  // (note: this will not compile)
+    println!("Calgary's history is: {}", calgary.city_history);  // 🚧
 }
 ```
 
@@ -6820,7 +6821,7 @@ fn main() {
     let mut my_string = String::from("Can I go inside the thread?");
 
     let handle = std::thread::spawn(|| {
-        println!("{}", my_string); // (note: this will not compile)
+        println!("{}", my_string); // 🚧
     });
 
     handle.join();
@@ -6862,7 +6863,7 @@ fn main() {
         println!("{}", my_string); // now my_string is being used as a reference
     });
 
-    std::mem::drop(my_string);  // (note: this will not compile) Maybe we drop it. But the thread still needs it.
+    std::mem::drop(my_string);  // 🚧 Maybe we drop it. But the thread still needs it.
 
     handle.join();
 }
@@ -6878,7 +6879,7 @@ fn main() {
         println!("{}", my_string);
     });
 
-    std::mem::drop(my_string);  // (note: this will not compile) we can't drop, because handle has it. So this won't work
+    std::mem::drop(my_string);  // 🚧 we can't drop, because handle has it. So this won't work
 
     handle.join();
 }
@@ -6907,7 +6908,7 @@ So just remember: if you need a value in a thread from outside the thread, you n
 You can make your own functions that take closures, but inside a function it is less free and you have to decide the type of closure. Outside a function a closure can decide by itself between `Fn`, `FnMut` and `FnOnce`, but inside you have to choose one. The best way to understand is to look at a few function signatures. Here is the one for `.all()`, which we know checks an iterator to see if everything is `true` (depending on what you decide is `true` or `false`). Part of its signature says this:
 
 ```rust
-    fn all<F>(&mut self, f: F) -> bool    // (note: this will not compile) incomplete code snippet
+    fn all<F>(&mut self, f: F) -> bool    // 🚧 incomplete code snippet
     where
         F: FnMut(Self::Item) -> bool,
 ```
@@ -6921,7 +6922,7 @@ Next is the part about the closure: `F: FnMut(Self::Item) -> bool`. Here it deci
 Here is a much simpler signature with a closure:
 
 ```rust
-fn do_something<F>(f: F)    // (note: this will not compile) incomplete code snippet
+fn do_something<F>(f: F)    // 🚧 incomplete code snippet
 where
     F: FnOnce(),
 {
@@ -7092,7 +7093,7 @@ fn main() {
 However, the more interesting part is that we can return `impl Trait`, and that lets us return closures because their function signatures are traits. You can see this in the signatures for methods that have them. For example, this is the signature for `.map()`:
 
 ```rust
-fn map<B, F>(self, f: F) -> Map<Self, F>     // (note: this will not compile) incomplete code snippet
+fn map<B, F>(self, f: F) -> Map<Self, F>     // 🚧 incomplete code snippet
     where
         Self: Sized,
         F: FnMut(Self::Item) -> B,
@@ -7201,7 +7202,7 @@ fn main() {
 You remember that we used an `Rc` to give a variable more than one owner. If we are doing the same thing in a thread, we need an `Arc`. `Arc` means "atomic reference counter". Atomic means that it uses the computer's processor so that data only gets written once each time. This is important because if two threads write data at the same time, you will get the wrong result. For example, imagine if you could do this in Rust:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 let mut x = 10;
 
 for i in 0..10 { // Thread 1
@@ -7277,14 +7278,14 @@ fn main() {
 Now we want to change the value of `my_number`. Right now it is an `i32`. We will change it to an `Arc<Mutex<i32>>`: an `i32` that can be changed, protected by an `Arc`.
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 let my_number = Arc::new(Mutex::new(0));
 ```
 
 Now that we have this, we can clone it. Each clone can go into a different thread. We have two threads, so we will make two clones:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 let my_number = Arc::new(Mutex::new(0));
 
 let my_number1 = Arc::clone(&my_number); // This clone goes into Thread 1
@@ -7396,7 +7397,7 @@ fn main() {
 A channel is an easy way to use many threads that send to one place. You can create a channel in Rust with `std::sync::mpsc`. `mpsc` means "multiple producer, single consumer", so "many threads sending to one place". To start a channel, you use `channel()`. This creates a `Sender` and a `Receiver` that are tied together. You can see this in the function signature:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 pub fn channel<T>() -> (Sender<T>, Receiver<T>)
 ```
 
@@ -7406,7 +7407,7 @@ So you have to choose one name for the sender and one for the receiver. Usually 
 use std::sync::mpsc::channel;
 
 fn main() {
-    let (sender, receiver) = channel(); // (note: this will not compile)
+    let (sender, receiver) = channel(); // 🚧
 }
 ```
 
@@ -7658,14 +7659,14 @@ The top bar of a Rust document is the search bar. It shows you results as you ty
 Usually the code for a method, struct, etc. will not be complete. This is because you don't usually need to see the full source to know how it works, and the full code can be confusing. But if you want to know more, you can click on [src] and see everything. For example, on the page for `String` you can see this signature:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 pub fn with_capacity(capacity: usize) -> String
 ```
 
 Okay, so you put a number in and it gives you a `String`. That's easy, but maybe you are curious. If you click on [src] you can see this:
 
 ```rust
-// (note: this will not compile) incomplete code snippet
+// 🚧 incomplete code snippet
 pub fn with_capacity(capacity: usize) -> String {
     String { vec: Vec::with_capacity(capacity) }
 }
@@ -7710,7 +7711,7 @@ You can also use a Box to create structs with the same struct inside. These are 
 
 ```rust
 struct List {
-    item: Option<List>, // (note: this will not compile)
+    item: Option<List>, // 🚧
 }
 ```
 
@@ -7873,7 +7874,7 @@ It prints `The character "Billy" is 15 years old.` Much easier!
 Now comes the builder pattern. We will have many Billys, so we will keep the default. But a lot of other characters will be only a bit different. The builder pattern lets us use very small methods to change one value each time. Here is one such method for `Character`:
 
 ```rust
-fn height(mut self, height: u32) -> Self {    // (note: this will not compile) incomplete code snippet
+fn height(mut self, height: u32) -> Self {    // 🚧 incomplete code snippet
     self.height = height;
     self
 }
@@ -7884,7 +7885,7 @@ Make sure to notice that it takes a `mut self`. We saw this once before, and it 
 So let's have three of these builder methods. They are almost the same:
 
 ```rust
-fn height(mut self, height: u32) -> Self {     // (note: this will not compile) incomplete code snippet
+fn height(mut self, height: u32) -> Self {     // 🚧 incomplete code snippet
     self.height = height;
     self
 }
@@ -7975,7 +7976,7 @@ One last method to add is usually called `.build()`. This method is a sort of fi
 First though let's change the `.new()` method. We don't want users to be free to create any kind of character anymore. So we'll move the values from `impl Default` to `.new()`. And now `.new()` doesn't take any input.
 
 ```rust
-    fn new() -> Self {    // (note: this will not compile) incomplete code snippet
+    fn new() -> Self {    // 🚧 incomplete code snippet
         Self {
             name: "Billy".to_string(),
             age: 15,
@@ -8047,7 +8048,7 @@ This prints the same thing: `Character { name: "Bobby", age: 15, height: 180, we
 We are almost ready to write the method `.build()`, but there is one problem: how do we make the user use it? Right now a user can write `let x = Character::new().height(76767);` and get a `Character`. There are many ways to do this, and maybe you can imagine your own. But we will add a `can_use: bool` value to `Character`.
 
 ```rust
-#[derive(Debug)]       // (note: this will not compile) incomplete code snippet
+#[derive(Debug)]       // 🚧 incomplete code snippet
 struct Character {
     name: String,
     age: u8,
@@ -8076,7 +8077,7 @@ And for the other methods like `.height()`, we will set `can_use` to `false`. On
 Our `.build()` method looks like this:
 
 ```rust
-fn build(mut self) -> Result<Character, String> {      // (note: this will not compile) incomplete code snippet
+fn build(mut self) -> Result<Character, String> {      // 🚧 incomplete code snippet
     if self.height < 200 && self.weight < 300 && !self.name.to_lowercase().contains("smurf") {
         self.can_use = true;
         Ok(self)
