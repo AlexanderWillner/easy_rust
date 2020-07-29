@@ -99,7 +99,7 @@ Here are some tips when using the Rust Playground:
 - Tools: Rustfmt will format your code nicely.
 - Tools: Clippy will give you extra information about how to make your code better.
 - Config: here you can change your theme to dark mode so you can work at night, and many other configurations.
-- Note: Snippets that can't be compiled contain the character "🚧".
+- Note: Snippets that can't be compiled contain the character "🚧". This is either because the code demonstrates a specific error or because it is an incomplete code snippet.
 
 If you want to install Rust, go here [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install) and follow the instructions. Usually you will use `rustup` to install and update Rust.
 
@@ -2828,7 +2828,7 @@ fn main() {
 But maybe it would be better to count the number of books so that we know that there are two copies of *Eye of the World*. First let's look at what `.entry()` does, and what `.or_insert()` does. `.entry()` actually returns an `enum` called `Entry`:
 
 ```rust
-pub fn entry(&mut self, key: K) -> Entry<K, V> // 🚧 incomplete code snippet
+pub fn entry(&mut self, key: K) -> Entry<K, V> // 🚧 
 ```
 
 (This is the first snippet (snippet = small piece of code) that does not work. For snippets that don't work there is a note that says `this will not compile` so you know that it won't work. There is also a note that says that it is `incomplete`. That means that there is no `fn main()` to run it. For snippets that don't work or are incomplete you can try to change it yourself, or continue reading.)
@@ -2849,7 +2849,7 @@ fn main() { }
 Then when we call `.or_insert()`, it looks at the enum and decides what to do.
 
 ```rust
-pub fn or_insert(self, default: V) -> &'a mut V { // 🚧 incomplete code snippet
+pub fn or_insert(self, default: V) -> &'a mut V { // 🚧 
     match self {
         Occupied(entry) => entry.into_mut(),
         Vacant(entry) => entry.insert(default),
@@ -2889,14 +2889,14 @@ The important part is `let return_value = book_hashmap.entry(book).or_insert(0);
 You can also use `.or_insert_with()` which lets you use a closure. You can always just do this:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 let return_value = book_hashmap.entry(book).or_insert_with(|| 0); // Closure with nothing
 ```
 
 or add any logic that you want. Here is something simple.
 
 ```rust
-    // 🚧 incomplete code snippet
+    // 🚧 
     for book in book_collection {
         let return_value =
             book_hashmap.entry(book).or_insert_with(|| {
@@ -3004,7 +3004,7 @@ It does not contain: 1 2 4 6 7 9 12 21 23 27 30 31 39 40 45 47 48 50 52 53 62 65
 A `BTreeSet` is similar to a `HashSet` in the same way that a `BTreeMap` is similar to a `HashMap`. If we print each item in the `HashSet`, we don't know what the order will be:
 
 ```rust
-for entry in number_hashset { // 🚧 incomplete code snippet
+for entry in number_hashset { // 🚧 
     print!("{} ", entry);
 }
 ```
@@ -3500,7 +3500,7 @@ fn main() { }
 The important point to remember: with `Some`, you have a value of type `T` (any type). But with `None`, you don't have anything. So in a `match` statement for Option you can't say:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 Some(value) => println!("The value is {}", value),
 None(value) => println!("The value is {}", value),
 ```
@@ -3619,7 +3619,7 @@ This information helps you fix your code. `src\main.rs:30:20` means "inside main
 You can also create your own error types. Result functions in the standard library usually have their own error types. For example:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 pub fn from_utf8(vec: Vec<u8>) -> Result<String, FromUtf8Error>
 ```
 
@@ -4010,14 +4010,14 @@ fn main() { }
 We can add `first_thing` and `second_thing`, but we need to give more information. Maybe we want an `f32`, so something like this:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 let result = self.second_thing + self.first_thing as f32
 ```
 
 But maybe we want an integer, so like this:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 let result = self.second_thing as u32 + self.first_thing
 ```
 
@@ -4054,7 +4054,7 @@ fn main() {
 This is okay, but we don't want to print "The dog is running". We can change the method `.run()`, but we have to follow the signature. The signature says:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 fn run(&self) {
     println!("The dog is running!");
 }
@@ -4394,7 +4394,7 @@ Here are some function signatures for them.
 `AsRef<str>`:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 impl AsRef<str> for String
 
 fn as_ref(&self) -> &str
@@ -4403,7 +4403,7 @@ fn as_ref(&self) -> &str
 `AsRef<[u8]>`:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 impl AsRef<[u8]> for String
 
 fn as_ref(&self) -> &[u8]
@@ -4412,7 +4412,7 @@ fn as_ref(&self) -> &[u8]
 `AsRef<OsStr>`:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 impl AsRef<OsStr> for String
 
 fn as_ref(&self) -> &OsStr
@@ -5136,7 +5136,7 @@ fn main() {
 This line is the biggest change:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 .for_each(|company| results_vec.push(company.get_ceo().ok_or("No CEO found")));
 ```
 
@@ -5154,7 +5154,7 @@ Err("No CEO found")
 So now we have all four entries. Now let's use `.ok_or_else()` so we can use a closure and get a better error message. Now we have space to use `format!` to create a `String`, and put the company name in that. Then we return the `String`.
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 company_vec.iter().for_each(|company| {
     results_vec.push(company.get_ceo().ok_or_else(|| {
         let err_message = format!("No CEO found for {}", company.name);
@@ -5929,7 +5929,7 @@ There are many methods for `RefCell`. Two of them are `.borrow()` and `.borrow_m
 So changing the value in a `RefCell` is very easy:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 user_1.active.replace(false);
 println!("{:?}", user_1.active);
 ```
@@ -5937,7 +5937,7 @@ println!("{:?}", user_1.active);
 And there are many other methods like `replace_with` that uses a closure:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 let date = 2020;
 
 user_1
@@ -6908,7 +6908,7 @@ So just remember: if you need a value in a thread from outside the thread, you n
 You can make your own functions that take closures, but inside a function it is less free and you have to decide the type of closure. Outside a function a closure can decide by itself between `Fn`, `FnMut` and `FnOnce`, but inside you have to choose one. The best way to understand is to look at a few function signatures. Here is the one for `.all()`, which we know checks an iterator to see if everything is `true` (depending on what you decide is `true` or `false`). Part of its signature says this:
 
 ```rust
-    fn all<F>(&mut self, f: F) -> bool    // 🚧 incomplete code snippet
+    fn all<F>(&mut self, f: F) -> bool    // 🚧 
     where
         F: FnMut(Self::Item) -> bool,
 ```
@@ -6922,7 +6922,7 @@ Next is the part about the closure: `F: FnMut(Self::Item) -> bool`. Here it deci
 Here is a much simpler signature with a closure:
 
 ```rust
-fn do_something<F>(f: F)    // 🚧 incomplete code snippet
+fn do_something<F>(f: F)    // 🚧 
 where
     F: FnOnce(),
 {
@@ -7093,7 +7093,7 @@ fn main() {
 However, the more interesting part is that we can return `impl Trait`, and that lets us return closures because their function signatures are traits. You can see this in the signatures for methods that have them. For example, this is the signature for `.map()`:
 
 ```rust
-fn map<B, F>(self, f: F) -> Map<Self, F>     // 🚧 incomplete code snippet
+fn map<B, F>(self, f: F) -> Map<Self, F>     // 🚧 
     where
         Self: Sized,
         F: FnMut(Self::Item) -> B,
@@ -7202,7 +7202,7 @@ fn main() {
 You remember that we used an `Rc` to give a variable more than one owner. If we are doing the same thing in a thread, we need an `Arc`. `Arc` means "atomic reference counter". Atomic means that it uses the computer's processor so that data only gets written once each time. This is important because if two threads write data at the same time, you will get the wrong result. For example, imagine if you could do this in Rust:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 let mut x = 10;
 
 for i in 0..10 { // Thread 1
@@ -7278,14 +7278,14 @@ fn main() {
 Now we want to change the value of `my_number`. Right now it is an `i32`. We will change it to an `Arc<Mutex<i32>>`: an `i32` that can be changed, protected by an `Arc`.
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 let my_number = Arc::new(Mutex::new(0));
 ```
 
 Now that we have this, we can clone it. Each clone can go into a different thread. We have two threads, so we will make two clones:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 let my_number = Arc::new(Mutex::new(0));
 
 let my_number1 = Arc::clone(&my_number); // This clone goes into Thread 1
@@ -7397,7 +7397,7 @@ fn main() {
 A channel is an easy way to use many threads that send to one place. You can create a channel in Rust with `std::sync::mpsc`. `mpsc` means "multiple producer, single consumer", so "many threads sending to one place". To start a channel, you use `channel()`. This creates a `Sender` and a `Receiver` that are tied together. You can see this in the function signature:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 pub fn channel<T>() -> (Sender<T>, Receiver<T>)
 ```
 
@@ -7659,14 +7659,14 @@ The top bar of a Rust document is the search bar. It shows you results as you ty
 Usually the code for a method, struct, etc. will not be complete. This is because you don't usually need to see the full source to know how it works, and the full code can be confusing. But if you want to know more, you can click on [src] and see everything. For example, on the page for `String` you can see this signature:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 pub fn with_capacity(capacity: usize) -> String
 ```
 
 Okay, so you put a number in and it gives you a `String`. That's easy, but maybe you are curious. If you click on [src] you can see this:
 
 ```rust
-// 🚧 incomplete code snippet
+// 🚧 
 pub fn with_capacity(capacity: usize) -> String {
     String { vec: Vec::with_capacity(capacity) }
 }
@@ -7874,7 +7874,7 @@ It prints `The character "Billy" is 15 years old.` Much easier!
 Now comes the builder pattern. We will have many Billys, so we will keep the default. But a lot of other characters will be only a bit different. The builder pattern lets us use very small methods to change one value each time. Here is one such method for `Character`:
 
 ```rust
-fn height(mut self, height: u32) -> Self {    // 🚧 incomplete code snippet
+fn height(mut self, height: u32) -> Self {    // 🚧 
     self.height = height;
     self
 }
@@ -7885,7 +7885,7 @@ Make sure to notice that it takes a `mut self`. We saw this once before, and it 
 So let's have three of these builder methods. They are almost the same:
 
 ```rust
-fn height(mut self, height: u32) -> Self {     // 🚧 incomplete code snippet
+fn height(mut self, height: u32) -> Self {     // 🚧 
     self.height = height;
     self
 }
@@ -7976,7 +7976,7 @@ One last method to add is usually called `.build()`. This method is a sort of fi
 First though let's change the `.new()` method. We don't want users to be free to create any kind of character anymore. So we'll move the values from `impl Default` to `.new()`. And now `.new()` doesn't take any input.
 
 ```rust
-    fn new() -> Self {    // 🚧 incomplete code snippet
+    fn new() -> Self {    // 🚧 
         Self {
             name: "Billy".to_string(),
             age: 15,
@@ -8048,7 +8048,7 @@ This prints the same thing: `Character { name: "Bobby", age: 15, height: 180, we
 We are almost ready to write the method `.build()`, but there is one problem: how do we make the user use it? Right now a user can write `let x = Character::new().height(76767);` and get a `Character`. There are many ways to do this, and maybe you can imagine your own. But we will add a `can_use: bool` value to `Character`.
 
 ```rust
-#[derive(Debug)]       // 🚧 incomplete code snippet
+#[derive(Debug)]       // 🚧 
 struct Character {
     name: String,
     age: u8,
@@ -8077,7 +8077,7 @@ And for the other methods like `.height()`, we will set `can_use` to `false`. On
 Our `.build()` method looks like this:
 
 ```rust
-fn build(mut self) -> Result<Character, String> {      // 🚧 incomplete code snippet
+fn build(mut self) -> Result<Character, String> {      // 🚧 
     if self.height < 200 && self.weight < 300 && !self.name.to_lowercase().contains("smurf") {
         self.can_use = true;
         Ok(self)
